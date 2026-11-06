@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عالم كرة القدم – البطولات وأبطالها</title>
+<style>
+:root{--bg:#fff8ec;--card:#fff;--ink:#1d1b3a;--muted:#5d5a7a;--a:#ff3d71;--b:#ffb400;--c:#00c2a8;--d:#3d5afe;--line:#ece4d4}
+@media (prefers-color-scheme:dark){:root{--bg:#14122b;--card:#201d42;--ink:#fff7e6;--muted:#b9b5dc;--line:#35316a}}
+*{box-sizing:border-box;margin:0}
+body{font-family:Tahoma,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8}
+header.nav{position:sticky;top:0;z-index:9;display:flex;gap:6px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:10px 5%;background:var(--card);border-bottom:3px solid var(--b)}
+.logo{font-weight:800;font-size:1.2rem}
+nav a{color:var(--ink);text-decoration:none;padding:6px 12px;border-radius:20px;font-size:.95rem}
+nav a:hover{background:var(--b);color:#1d1b3a}
+.hero{text-align:center;padding:70px 5% 80px;color:#fff;background:var(--hero,linear-gradient(135deg,#ff3d71,#ff8a00 35%,#ffd000 60%,#00c2a8 85%,#3d5afe));position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,6vw,3.8rem);text-shadow:0 3px 12px rgba(0,0,0,.3)}
+.hero p{max-width:640px;margin:14px auto 26px;font-size:1.15rem;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.ball{font-size:4rem;display:inline-block;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:700;padding:12px 26px;border-radius:30px;margin:5px;text-decoration:none;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.btn.y{background:#fff;color:#1d1b3a}.btn.d{background:#1d1b3a;color:#fff}
+.stats{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:-40px 5% 0;position:relative}
+.stat{background:var(--card);border-radius:18px;padding:14px 26px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,.12);border-bottom:5px solid var(--a)}
+.stat:nth-child(2){border-color:var(--b)}.stat:nth-child(3){border-color:var(--c)}.stat:nth-child(4){border-color:var(--d)}
+.stat b{display:block;font-size:1.9rem}
+section{padding:50px 5%;max-width:1100px;margin:auto}
+h2{font-size:1.9rem;margin-bottom:18px}
+h2::after{content:"";display:block;width:70px;height:5px;border-radius:5px;margin-top:6px;background:linear-gradient(90deg,var(--a),var(--b),var(--c))}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tab{border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;padding:9px 18px;border-radius:26px;cursor:pointer}
+.tab.on{background:linear-gradient(90deg,var(--a),var(--b));color:#fff;border-color:transparent;font-weight:700}
+.two{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+@media(max-width:800px){.two{grid-template-columns:1fr}}
+.panel{background:var(--card);border-radius:18px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.list{max-height:460px;overflow:auto}
+table{width:100%;border-collapse:collapse}
+td,th{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+th{position:sticky;top:0;background:var(--card);color:var(--a)}
+.bar{display:flex;align-items:center;gap:8px;margin:7px 0;font-size:.95rem}
+.bar span:first-child{width:110px;flex:none}
+.bar i{display:block;height:14px;border-radius:8px;background:linear-gradient(90deg,var(--c),var(--d))}
+.note{color:var(--muted);font-size:.9rem;margin-top:10px}
+#msgs{height:300px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:8px;border-radius:12px;background:var(--bg)}
+.m{max-width:80%;padding:8px 14px;border-radius:16px}
+.m.u{align-self:flex-start;background:linear-gradient(90deg,var(--d),var(--c));color:#fff}
+.m.b{align-self:flex-end;background:var(--card);border:1px solid var(--line)}
+.row{display:flex;gap:8px;margin-top:10px}
+.row input{flex:1;padding:11px 16px;border-radius:26px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+.row button{padding:0 22px;border:0;border-radius:26px;background:var(--a);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.chips{margin-top:8px}.chips button{margin:3px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:4px 12px;border-radius:16px;cursor:pointer;font:inherit;font-size:.85rem}
+.acc{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.pill{background:var(--b);color:#1d1b3a;padding:4px 12px;border-radius:16px;font-weight:700;font-size:.85rem}
+.nb{border:0;cursor:pointer;font:inherit;padding:7px 16px;border-radius:20px;background:var(--a);color:#fff;font-weight:700}
+.notice{max-width:760px;margin:22px auto 0;background:rgba(255,255,255,.93);color:#1d1b3a;border-radius:16px;padding:12px 18px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.ov.on{display:flex}
+.mod{background:var(--card);border-radius:20px;padding:24px;width:min(430px,100%);max-height:90vh;overflow:auto}
+.mod input{width:100%;padding:11px 14px;margin:6px 0;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+.mod .full{width:100%;margin:10px 0 0;padding:12px;border:0;border-radius:24px;background:linear-gradient(90deg,var(--a),var(--b));color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.lnk{background:none;border:0;color:var(--d);cursor:pointer;font:inherit;margin-top:8px}
+.err{color:var(--a);min-height:1.5em;font-size:.9rem}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.plan{background:var(--card);border-radius:18px;padding:22px;text-align:center;border-top:6px solid var(--c);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.plan.hot{border-color:var(--a);transform:scale(1.03)}
+.price{font-size:2rem;font-weight:800}
+.plan ul{list-style:none;padding:0;margin:12px 0;color:var(--muted)}
+.pm{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.pm button{padding:10px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;cursor:pointer}
+.pm button.on{border-color:var(--a);background:rgba(255,61,113,.15);font-weight:700}
+.polls{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.opt{display:block;width:100%;text-align:right;margin:6px 0;padding:10px 14px;border-radius:12px;border:2px solid var(--line);background:linear-gradient(270deg,rgba(0,194,168,.4) var(--w,0%),var(--bg) var(--w,0%));color:var(--ink);font:inherit;cursor:pointer}
+.opt.on{border-color:var(--a);font-weight:700}
+:root[data-theme="dark"]{--bg:#14122b;--card:#201d42;--ink:#fff7e6;--muted:#b9b5dc;--line:#35316a}
+:root[data-theme="light"]{--bg:#fff8ec;--card:#fff;--ink:#1d1b3a;--muted:#5d5a7a;--line:#ece4d4}
+.ticker{max-width:820px;margin:26px auto 0;text-align:center;padding:12px 18px;border-radius:16px;background:var(--card);border:2px dashed var(--b);font-weight:700}
+.conf{position:fixed;top:-40px;font-size:1.8rem;z-index:99;pointer-events:none;animation:fall 3.2s linear forwards}
+@keyframes fall{to{transform:translateY(115vh) rotate(360deg)}}
+.m.u.gold{background:linear-gradient(90deg,#ffb400,#ff8a00);color:#1d1b3a}
+.m.u.dia{background:linear-gradient(90deg,#7c4dff,#00e5ff);color:#fff}
+.prog{height:14px;border-radius:8px;background:var(--line);overflow:hidden;margin:8px 0}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--b))}
+.pal{margin:4px;padding:6px 14px;border-radius:16px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+.pal.on{border-color:var(--a);font-weight:700}
+footer{text-align:center;padding:30px 5%;background:#1d1b3a;color:#fff}
+</style>
+</head>
+<body>
+<header class="nav"><div class="logo">⚽ عالم كرة القدم</div>
+<nav><a href="#home">الرئيسية</a><a href="#y26">أبطال 2026</a><a href="#cups">البطولات</a><a href="#cab">البحث</a><a href="#quiz">الاختبار</a><a href="#vote">التصويت</a><a href="#chat">الدردشة</a><a href="#plans">الاشتراك</a></nav><div class="acc"><button class="nb" id="th" title="الوضع الليلي">🌙</button><span class="acc" id="acc"></span></div></header>
+
+<div class="hero" id="home">
+<div class="ball">⚽</div>
+<h1>تاريخ كرة القدم في مكان واحد</h1>
+<p>تعرّف على أبرز البطولات العالمية والقارية ومن توّج بها عبر السنين، واسأل مساعد الدردشة عن أي بطل أو عام.</p>
+<a class="btn y" href="#cups">استعرض البطولات</a>
+<button class="btn d" id="dl">⬇ تحميل الموقع</button>
+<div class="notice">📌 ملاحظة: أنشئ حسابًا مجانيًا وشارك في الدردشة. كل تعليق تنشره يمنحك نقطة في حسابك، وعند وصولك إلى 50 نقطة تحصل على شارة «عضو ذهبي» 🌟 ومزايا حصرية، وللمشتركين (تجربة مجانية حاليًا) مزايا أكثر 💎</div>
+</div>
+<div class="stats" id="stats"></div>
+<div class="ticker" id="fact"></div>
+
+<section id="y26">
+<h2>🏅 أبطال 2026</h2>
+<div class="plans">
+<div class="plan hot"><h3>🏆 كأس العالم 2026</h3><div class="price" style="font-size:1.7rem">إسبانيا</div><ul><li>إسبانيا 1-0 الأرجنتين بعد التمديد</li><li>هدف فيران توريس • 19 يوليو 2026 • ميتلايف</li><li>اللقب الثاني لإسبانيا</li></ul></div>
+<div class="plan"><h3>⭐ دوري أبطال أوروبا</h3><div class="price" style="font-size:1.7rem">باريس سان جيرمان</div><ul><li>تغلّب على أرسنال بركلات الترجيح</li><li>بودابست • 30 مايو 2026</li><li>لقب ثانٍ على التوالي</li></ul></div>
+<div class="plan"><h3>🌍 أمم أفريقيا 2025 (يناير 2026)</h3><div class="price" style="font-size:1.7rem">المغرب</div><ul><li>رسميًا بقرار الكاف (3-0 بالانسحاب)</li><li>السنغال فازت 1-0 داخل الملعب</li><li>الطعن لدى كاس: الحكم متوقع نهاية نوفمبر 2026</li></ul></div>
+<div class="plan"><h3>🥇 الكرة الذهبية 2026</h3><div class="price" style="font-size:1.7rem">هاري كين</div><ul><li>بايرن ميونخ وإنجلترا • حفل لندن 26 أكتوبر 2026</li><li>جائزة كوبا (أفضل شاب): لامين يامال للمرة الثالثة تواليًا</li></ul></div>
+</div>
+</section>
+
+<section id="cups">
+<h2>البطولات وأبطالها</h2>
+<div class="tabs" id="tabs"></div>
+<div class="two">
+<div class="panel list"><table><thead><tr><th>السنة</th><th>البطل</th></tr></thead><tbody id="rows"></tbody></table></div>
+<div class="panel"><h3 id="ttl"></h3><p class="note" id="info"></p><div id="bars"></div></div>
+</div>
+<p class="note">ملاحظة: القوائم محدَّثة حتى نوفمبر 2026. ولا توجد نسخة من كأس أمم أوروبا أو كوبا أمريكا في عام 2026. وإذا أصدرت محكمة التحكيم الرياضي (كاس) حكمها في طعن السنغال، فسيلزم تحديث نتيجة أمم أفريقيا 2025.</p>
+</section>
+
+<section id="cab">
+<h2>🔎 خزانة الألقاب والمقارنة</h2>
+<div class="panel"><div class="row" style="flex-wrap:wrap"><input id="c1" placeholder="منتخب أو نادٍ أو لاعب، مثال: البرازيل"><input id="c2" placeholder="للمقارنة (اختياري)، مثال: ألمانيا"><input id="c3" placeholder="اسم ثالث (مزايا الأعضاء)" style="display:none"><input id="c4" placeholder="اسم رابع (مزايا الأعضاء)" style="display:none"><button id="cgo">بحث</button></div><div class="polls" id="cres" style="margin-top:14px"></div><p class="note">يعرض البحث ألقاب الاسم في كل البطولات المتاحة. وكوبا أمريكا تضم النسخ الأخيرة فقط.</p></div>
+</section>
+
+<section id="quiz">
+<h2>🧠 اختبر معلوماتك</h2>
+<div class="row" id="qopts" style="display:none;align-items:center;margin-bottom:10px"><span>عدد الأسئلة:</span><select id="qn" style="padding:8px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit"></select></div>
+<div class="panel" id="qz"></div>
+</section>
+
+<section id="vote">
+<h2>🗳️ صوّت وتوقّع</h2>
+<p class="note" id="pmode"></p>
+<div class="polls" id="polls"></div>
+<p class="note">الأسماء المقترحة اختيارات من الموقع وليست ترشيحات رسمية، ويمكن تعديلها بسهولة. يمكنك تغيير تصويتك بالضغط على خيار آخر.</p>
+</section>
+
+<section id="chat">
+<h2>قسم الدردشة</h2>
+<div class="panel">
+<div id="msgs"></div>
+<div class="row"><input id="q" placeholder="اكتب سؤالك، مثال: من فاز بكأس العالم 2010؟"><button id="send">إرسال</button></div>
+<div class="chips" id="chips"></div>
+<p class="note">المساعد يعمل داخل الصفحة نفسها ويجيب اعتمادًا على بيانات البطولات المعروضة أعلاه.</p>
+</div>
+</section>
+
+<section id="plans">
+<h2>المستويات والاشتراك</h2>
+<div class="plans">
+<div class="plan"><h3>⚽ عضو عادي</h3><div class="price" style="font-size:1.5rem">مجاني</div><ul><li>تصفح البطولات والتصويت</li><li>الدردشة وجمع النقاط</li><li>اختبار من 5 أسئلة</li><li>بحث ومقارنة بين اسمين</li></ul></div>
+<div class="plan"><h3>🌟 عضو ذهبي</h3><div class="price" style="font-size:1.5rem">عند 50 نقطة</div><ul><li>اسم ذهبي ✨ في الدردشة</li><li>مقارنة حتى 4 أسماء</li><li>اختبار من 10 أسئلة</li><li>ألوان خاصة للموقع (زمردي وذهبي)</li></ul></div>
+<div class="plan hot"><h3>💎 مشترك ماسي</h3><div class="price" style="font-size:1.5rem">تجربة مجانية</div><ul><li>كل مزايا العضو الذهبي فورًا</li><li>اسم ماسي 💎 في الدردشة</li><li>اختبار الخبراء من 20 سؤالًا</li><li>ألوان ملكية ونيون</li><li>تصدير كل البطولات بملف CSV</li></ul><button class="nb sb" data-p="ماسي (تجريبي)" data-pr="مجانًا خلال التجربة">جرّب مجانًا</button></div>
+</div>
+<div class="panel" id="vip" style="margin-top:18px"></div>
+<p class="note">الاشتراك تجريبي حاليًا: يُفعَّل مجانًا دون أي دفع. والسعر المستقبلي المقترح 4.99$ شهريًا (قابل للتعديل). وعند إطلاق الاشتراك الفعلي ستُعتمد وسائل الدفع الظاهرة في نافذة التفعيل، ويلزم لذلك ربط الموقع بخدمة دفع مثل PayPal أو Stripe عبر خادم.</p>
+</section>
+
+<div class="ov" id="ov1"><div class="mod">
+<h3 id="t1"></h3><p class="err" id="am"></p>
+<input id="un" placeholder="اسم المستخدم" autocomplete="username">
+<input id="em" type="email" placeholder="البريد الإلكتروني">
+<input id="pw" type="password" placeholder="كلمة المرور (6 أحرف على الأقل)" autocomplete="current-password">
+<button class="full" id="go"></button>
+<button class="lnk" id="sw"></button> <button class="lnk" onclick="this.closest('.ov').classList.remove('on')">إغلاق</button>
+</div></div>
+
+<div class="ov" id="ov2"><div class="mod">
+<h3>💎 تفعيل التجربة المجانية</h3><p id="pl"></p><p class="note">الاشتراك تجريبي حاليًا ولا يُسحب أي مبلغ. وسائل الدفع أدناه ستُعتمد عند إطلاق الاشتراك الفعلي، واختيارها الآن اختياري.</p>
+<div class="pm"><button>💳 Visa</button><button>💳 Mastercard</button><button>🅿️ PayPal</button><button> Apple Pay</button><button>G Pay</button><button>🏦 تحويل بنكي</button><button>📱 محفظة إلكترونية</button><button>₿ عملات رقمية</button></div>
+<p class="err" id="pm2"></p>
+<button class="full" id="pay">فعّل التجربة المجانية</button>
+<button class="lnk" onclick="this.closest('.ov').classList.remove('on')">إغلاق</button>
+</div></div>
+
+<footer>⚽ عالم كرة القدم © 2026 – صُنع بحب كرة القدم</footer>
+
+<script>
+const T=[
+{k:"wc",n:"كأس العالم",e:"🏆",w:["كأس العالم","مونديال"],i:"تُقام كل أربع سنوات منذ عام 1930، وتنظّمها الفيفا.",d:"1930 الأوروغواي|1934 إيطاليا|1938 إيطاليا|1950 الأوروغواي|1954 ألمانيا الغربية|1958 البرازيل|1962 البرازيل|1966 إنجلترا|1970 البرازيل|1974 ألمانيا الغربية|1978 الأرجنتين|1982 إيطاليا|1986 الأرجنتين|1990 ألمانيا الغربية|1994 البرازيل|1998 فرنسا|2002 البرازيل|2006 إيطاليا|2010 إسبانيا|2014 ألمانيا|2018 فرنسا|2022 الأرجنتين|2026 إسبانيا"},
+{k:"cl",n:"دوري أبطال أوروبا",e:"⭐",w:["أبطال أوروبا","دوري الأبطال","كأس أوروبا للأندية"],i:"أعرق بطولة للأندية في العالم، انطلقت عام 1956 باسم كأس الأندية الأوروبية.",d:"1956 ريال مدريد|1957 ريال مدريد|1958 ريال مدريد|1959 ريال مدريد|1960 ريال مدريد|1961 بنفيكا|1962 بنفيكا|1963 ميلان|1964 إنتر ميلان|1965 إنتر ميلان|1966 ريال مدريد|1967 سلتيك|1968 مانشستر يونايتد|1969 ميلان|1970 فينورد|1971 أياكس|1972 أياكس|1973 أياكس|1974 بايرن ميونخ|1975 بايرن ميونخ|1976 بايرن ميونخ|1977 ليفربول|1978 ليفربول|1979 نوتنغهام فورست|1980 نوتنغهام فورست|1981 ليفربول|1982 أستون فيلا|1983 هامبورغ|1984 ليفربول|1985 يوفنتوس|1986 ستيوا بوخارست|1987 بورتو|1988 آيندهوفن|1989 ميلان|1990 ميلان|1991 النجم الأحمر|1992 برشلونة|1993 مارسيليا|1994 ميلان|1995 أياكس|1996 يوفنتوس|1997 بوروسيا دورتموند|1998 ريال مدريد|1999 مانشستر يونايتد|2000 ريال مدريد|2001 بايرن ميونخ|2002 ريال مدريد|2003 ميلان|2004 بورتو|2005 ليفربول|2006 برشلونة|2007 ميلان|2008 مانشستر يونايتد|2009 برشلونة|2010 إنتر ميلان|2011 برشلونة|2012 تشيلسي|2013 بايرن ميونخ|2014 ريال مدريد|2015 برشلونة|2016 ريال مدريد|2017 ريال مدريد|2018 ريال مدريد|2019 ليفربول|2020 بايرن ميونخ|2021 تشيلسي|2022 ريال مدريد|2023 مانشستر سيتي|2024 ريال مدريد|2025 باريس سان جيرمان|2026 باريس سان جيرمان"},
+{k:"eu",n:"كأس أمم أوروبا",e:"🇪🇺",w:["أمم أوروبا","يورو"],i:"انطلقت عام 1960 وتُقام كل أربع سنوات.",d:"1960 الاتحاد السوفيتي|1964 إسبانيا|1968 إيطاليا|1972 ألمانيا الغربية|1976 تشيكوسلوفاكيا|1980 ألمانيا الغربية|1984 فرنسا|1988 هولندا|1992 الدنمارك|1996 ألمانيا|2000 فرنسا|2004 اليونان|2008 إسبانيا|2012 إسبانيا|2016 البرتغال|2020 إيطاليا|2024 إسبانيا"},
+{k:"af",n:"كأس أمم أفريقيا",e:"🌍",w:["أمم أفريقيا","أمم إفريقيا","كان"],i:"انطلقت عام 1957 بثلاثة منتخبات فقط، وهي اليوم أكبر بطولات القارة السمراء.",d:"1957 مصر|1959 مصر|1962 إثيوبيا|1963 غانا|1965 غانا|1968 الكونغو الديمقراطية|1970 السودان|1972 الكونغو|1974 زائير|1976 المغرب|1978 غانا|1980 نيجيريا|1982 غانا|1984 الكاميرون|1986 مصر|1988 الكاميرون|1990 الجزائر|1992 كوت ديفوار|1994 نيجيريا|1996 جنوب أفريقيا|1998 مصر|2000 الكاميرون|2002 الكاميرون|2004 تونس|2006 مصر|2008 مصر|2010 مصر|2012 زامبيا|2013 نيجيريا|2015 كوت ديفوار|2017 الكاميرون|2019 الجزائر|2021 السنغال|2023 كوت ديفوار|2025 المغرب ~أُقيمت في يناير 2026. فازت السنغال 1-0 داخل الملعب، ثم قضى الكاف بخسارتها بالانسحاب 3-0 وتتويج المغرب. الطعن أمام كاس لم يُحسم بعد"},
+{k:"ca",n:"كوبا أمريكا",e:"🌎",w:["كوبا أمريكا","كوبا اميركا"],i:"أقدم بطولة للمنتخبات في العالم، أُقيمت أولى نسخها عام 1916. الأكثر تتويجًا: الأرجنتين (16) ثم الأوروغواي (15) والبرازيل (9).",d:"2011 الأوروغواي|2015 تشيلي|2016 تشيلي|2019 البرازيل|2021 الأرجنتين|2024 الأرجنتين"},
+{k:"bd",n:"الكرة الذهبية",e:"🥇",w:["الكرة الذهبية","بالون دور"],i:"تمنحها مجلة فرانس فوتبول منذ 1956 لأفضل لاعب في العالم، ولم تُمنح عام 2020 بسبب جائحة كورونا. الأكثر تتويجًا: ميسي (8) ثم كريستيانو رونالدو (5).",d:"1956 ستانلي ماثيوز|1957 ألفريدو دي ستيفانو|1958 ريمون كوبا|1959 ألفريدو دي ستيفانو|1960 لويس سواريز|1961 عمر سيفوري|1962 يوزف ماسوبوست|1963 ليف ياشين|1964 دينيس لو|1965 أوزيبيو|1966 بوبي تشارلتون|1967 فلوريان ألبرت|1968 جورج بيست|1969 جياني ريفيرا|1970 غيرد مولر|1971 يوهان كرويف|1972 فرانتس بكنباور|1973 يوهان كرويف|1974 يوهان كرويف|1975 أوليغ بلوخين|1976 فرانتس بكنباور|1977 ألان سيمونسن|1978 كيفن كيغان|1979 كيفن كيغان|1980 كارل هاينز رومينيغه|1981 كارل هاينز رومينيغه|1982 باولو روسي|1983 ميشيل بلاتيني|1984 ميشيل بلاتيني|1985 ميشيل بلاتيني|1986 إيغور بيلانوف|1987 رود خوليت|1988 ماركو فان باستن|1989 ماركو فان باستن|1990 لوثر ماتيوس|1991 جان بيار بابان|1992 ماركو فان باستن|1993 روبرتو باجيو|1994 هريستو ستويشكوف|1995 جورج ويا|1996 ماتياس زامر|1997 رونالدو نازاريو|1998 زين الدين زيدان|1999 ريفالدو|2000 لويس فيغو|2001 مايكل أوين|2002 رونالدو نازاريو|2003 بافل نيدفيد|2004 أندريه شيفتشينكو|2005 رونالدينيو|2006 فابيو كانافارو|2007 كاكا|2008 كريستيانو رونالدو|2009 ليونيل ميسي|2010 ليونيل ميسي|2011 ليونيل ميسي|2012 ليونيل ميسي|2013 كريستيانو رونالدو|2014 كريستيانو رونالدو|2015 ليونيل ميسي|2016 كريستيانو رونالدو|2017 كريستيانو رونالدو|2018 لوكا مودريتش|2019 ليونيل ميسي|2021 ليونيل ميسي|2022 كريم بنزيما|2023 ليونيل ميسي|2024 رودري|2025 عثمان ديمبيلي|2026 هاري كين"},
+{k:"kp",n:"جائزة كوبا (أفضل شاب)",e:"🌟",w:["كوبا","لاعب شاب"],i:"تُمنح منذ 2018 لأفضل لاعب دون 21 عامًا ضمن حفل الكرة الذهبية، ولم تُمنح عام 2020. ويامال أول من فاز بها ثلاث مرات متتالية.",d:"2018 كيليان مبابي|2019 ماتيس دي ليخت|2021 بيدري|2022 غافي|2023 جود بيلينغهام|2024 لامين يامال|2025 لامين يامال|2026 لامين يامال"}
+];
+T.forEach(t=>t.l=t.d.split("|").map(s=>{const p=s.indexOf(" "),r=s.slice(p+1).split("~");return[+s.slice(0,p),r[0],r[1]||""]}));
+const tabs=document.getElementById("tabs");
+function count(l){const c={};l.forEach(x=>c[x[1]]=(c[x[1]]||0)+1);return Object.entries(c).sort((a,b)=>b[1]-a[1])}
+function show(i){
+ const t=T[i];
+ [...tabs.children].forEach((b,j)=>b.classList.toggle("on",j==i));
+ document.getElementById("rows").innerHTML=[...t.l].reverse().map(x=>`<tr><td>${x[0]}</td><td>${x[1]}${x[2]?`<br><small class="note">${x[2]}</small>`:""}</td></tr>`).join("");
+ document.getElementById("ttl").textContent=t.e+" "+t.n;
+ document.getElementById("info").textContent=t.i;
+ const c=count(t.l).slice(0,7),m=c[0][1];
+ document.getElementById("bars").innerHTML="<h4>الأكثر تتويجًا</h4>"+c.map(x=>`<div class="bar"><span>${x[0]}</span><i style="width:${x[1]/m*100}px"></i><b>${x[1]}</b></div>`).join("");
+}
+T.forEach((t,i)=>{const b=document.createElement("button");b.className="tab";b.textContent=t.e+" "+t.n;b.onclick=()=>show(i);tabs.appendChild(b)});
+show(0);
+document.getElementById("stats").innerHTML=[["🏆",T.length,"بطولات"],["📅","1930","أول كأس عالم"],["🥇",count(T[0].l)[0][1],"ألقاب البرازيل"],["⭐",count(T[1].l)[0][1],"ألقاب ريال مدريد"]].map(s=>`<div class="stat"><b>${s[1]}</b>${s[2]}</div>`).join("");
+document.getElementById("dl").onclick=()=>{
+ const b=new Blob(["<!DOCTYPE html>\n"+document.documentElement.outerHTML],{type:"text/html"});
+ const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="football-world.html";document.body.appendChild(a);a.click();a.remove();
+};
+/* الدردشة */
+const msgs=document.getElementById("msgs"),q=document.getElementById("q");
+function add(t,c){const d=document.createElement("div");d.className="m "+c;d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight}
+function norm(s){return s.replace(/[أإآ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه")}
+function answer(s){
+ const n=norm(s),y=(s.match(/\d{4}/)||[])[0];
+ let t=T.find(t=>t.w.some(w=>n.includes(norm(w))));
+ if(!t&&/(مرحبا|السلام|اهلا)/.test(n))return "أهلًا بك في عالم كرة القدم! اسألني عن أي بطولة أو سنة.";
+ if(!t){
+  const hit=T.flatMap(t=>t.l.map(x=>[t,x])).find(([t,x])=>n.includes(norm(x[1]))&&!y);
+  if(hit){const tm=hit[1][1],r=T.map(t=>[t.n,t.l.filter(x=>x[1]==tm).map(x=>x[0])]).filter(r=>r[1].length);return r.map(r=>`${tm} توّج بـ${r[0]} ${r[1].length} مرة (${r[1].join("، ")})`).join(".\n")}
+  return "لم أفهم سؤالك تمامًا. جرّب مثلًا: «من فاز بكأس العالم 2018؟» أو «من الأكثر تتويجًا بأبطال أوروبا؟»";
+ }
+ if(y){const r=t.l.find(x=>x[0]==y);return r?`بطل ${t.n} عام ${y} هو ${r[1]}.${r[2]?" ملاحظة: "+r[2]+".":""}`:`لا توجد نسخة من ${t.n} عام ${y} في بياناتي.`}
+ const c=count(t.l),top=c.filter(x=>x[1]==c[0][1]).map(x=>x[0]).join(" و");
+ const last=t.l[t.l.length-1];
+ return `الأكثر تتويجًا بـ${t.n}: ${top} (${c[0][1]} ألقاب). آخر بطل في قائمتي: ${last[1]} عام ${last[0]}.`;
+}
+/* الحسابات والنقاط والاشتراك */
+const $=id=>document.getElementById(id);
+const LS={g(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},s(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let users=LS.g("fw_users")||{},cur=LS.g("fw_cur"),mode="reg",plan="",meth="";
+if(cur&&!users[cur])cur=null;
+function save(){LS.s("fw_users",users);LS.s("fw_cur",cur)}
+async function hs(s){try{const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}catch(e){return btoa(unescape(encodeURIComponent(s)))}}
+function ui(){
+ const a=$("acc");a.textContent="";
+ if(!cur){const b=document.createElement("button");b.className="nb";b.textContent="👤 دخول / إنشاء حساب";b.onclick=()=>openAuth();a.appendChild(b);return}
+ const u=users[cur],p=document.createElement("span"),o=document.createElement("button");
+ p.className="pill";p.textContent=`${u.name} · ${u.pts} نقطة · ${u.pts>=50?"🌟 عضو ذهبي":"⚽ مبتدئ"}${u.sub?" · 💎 "+u.sub:""}`;
+ o.className="nb";o.textContent="خروج";o.onclick=()=>{cur=null;save();ui()};
+ a.append(p,o);
+}
+function setMode(m){mode=m;const r=m=="reg";$("em").style.display=r?"":"none";$("t1").textContent=r?"إنشاء حساب جديد":"تسجيل الدخول";$("go").textContent=r?"إنشاء الحساب":"دخول";$("sw").textContent=r?"لدي حساب بالفعل":"ليس لدي حساب"}
+function openAuth(msg){$("am").textContent=msg||"";setMode(mode);$("ov1").classList.add("on")}
+$("sw").onclick=()=>setMode(mode=="reg"?"log":"reg");
+$("go").onclick=async()=>{
+ const n=$("un").value.trim(),k=n.toLowerCase(),pw=$("pw").value,e=$("em").value.trim();
+ if(n.length<3||pw.length<6){$("am").textContent="اسم المستخدم 3 أحرف على الأقل وكلمة المرور 6 أحرف على الأقل.";return}
+ const H=await hs(pw);
+ if(mode=="reg"){
+  if(!/^\S+@\S+\.\S+$/.test(e)){$("am").textContent="أدخل بريدًا إلكترونيًا صحيحًا.";return}
+  if(users[k]){$("am").textContent="اسم المستخدم مستعمل، اختر اسمًا آخر.";return}
+  users[k]={name:n,email:e,h:H,pts:0,sub:"",last:""};
+ }else if(!users[k]||users[k].h!==H){$("am").textContent="اسم المستخدم أو كلمة المرور غير صحيحة.";return}
+ cur=k;save();ui();$("ov1").classList.remove("on");$("pw").value="";
+ add("أهلًا "+users[k].name+"! شارك بتعليقاتك واكسب النقاط. ⚽","b");
+};
+document.querySelectorAll(".sb").forEach(b=>b.onclick=()=>{
+ if(!cur){openAuth("سجّل الدخول أولًا لإتمام الاشتراك.");return}
+ plan=b.dataset.p;$("pl").textContent="الخطة: "+plan+" – "+b.dataset.pr;$("pm2").textContent="";$("ov2").classList.add("on")});
+document.querySelectorAll(".pm button").forEach(b=>b.onclick=()=>{meth=b.textContent.trim();document.querySelectorAll(".pm button").forEach(x=>x.classList.toggle("on",x==b))});
+$("pay").onclick=()=>{
+ 
+ users[cur].sub=plan;save();ui();$("ov2").classList.remove("on");
+ boom();add(`تم تفعيل تجربتك المجانية «${plan}» وفُتحت لك كل المزايا الحصرية! 💎`,"b");
+};
+function send(){const v=q.value.trim();if(!v)return;
+ if(!cur){openAuth("سجّل الدخول لتنشر تعليقك وتكسب النقاط.");return}
+ const u=users[cur],L=lvl();add((L==2?"💎 ":L==1?"✨ ":"")+u.name+": "+v,"u"+(L==2?" dia":L==1?" gold":""));q.value="";
+ if(v.length>=3&&v!==u.last){u.pts++;u.last=v}
+ save();ui();
+ if(u.pts==50&&v===u.last)(boom(),add("🎉 مبروك! وصلت إلى 50 نقطة وحصلت على شارة «عضو ذهبي»، وفُتحت لك مزايا حصرية: اسم ذهبي، وألوان خاصة، ومقارنة حتى 4 أسماء، واختبار أطول.","b"));
+ setTimeout(()=>add(answer(v),"b"),350)}
+document.getElementById("send").onclick=send;q.onkeydown=e=>{if(e.key=="Enter")send()};
+["من فاز بكأس العالم 2010؟","من الأكثر تتويجًا بأبطال أوروبا؟","بطل كأس أمم أفريقيا 2019","ماذا حقق ريال مدريد؟"].forEach(t=>{const b=document.createElement("button");b.textContent=t;b.onclick=()=>{q.value=t;send()};document.getElementById("chips").appendChild(b)});
+add("مرحبًا بك! أنا مساعد كرة القدم. اسألني عن أبطال أي بطولة أو أي سنة. ⚽","b");
+ui();
+/* التصويت */
+const P=[{k:'w30',t:'🏆 من يفوز بكأس العالم 2030؟',o:['إسبانيا','فرنسا','الأرجنتين','البرازيل','إنجلترا','المغرب','البرتغال','ألمانيا']},{k:'cl27',t:'⭐ من يفوز بدوري أبطال أوروبا 2027؟',o:['باريس سان جيرمان','ريال مدريد','برشلونة','بايرن ميونخ','أرسنال','مانشستر سيتي','ليفربول','إنتر ميلان']},{k:'bd27',t:'🥇 من يفوز بالكرة الذهبية 2027؟',o:['لامين يامال','عثمان ديمبيلي','كيليان مبابي','هاري كين','إرلينغ هالاند','فيتينيا','محمد صلاح','رافينيا']},{k:'kp27',t:'🌟 من أفضل لاعب شاب في 2027 (جائزة كوبا)؟',o:['لامين يامال','باو كوبارسي','لينارت كارل','إستيفاو','وارن زائير-إيمري']}];
+let VT={},mine=LS.g('fw_mine')||{},pdb=null,puid=null;
+function tallyLocal(){VT={};P.forEach(p=>{if(mine[p.k]&&p.o.includes(mine[p.k]))VT[p.k+'|'+mine[p.k]]=1})}
+function renderPolls(){
+ const box=$('polls');box.textContent='';
+ P.forEach(p=>{
+  const c=document.createElement('div');c.className='panel';
+  const h=document.createElement('h3');h.textContent=p.t;c.appendChild(h);
+  const tot=p.o.reduce((s,o)=>s+(VT[p.k+'|'+o]||0),0);
+  p.o.forEach(o=>{
+   const n=VT[p.k+'|'+o]||0,pc=tot?Math.round(n/tot*100):0,b=document.createElement('button');
+   b.className='opt'+(mine[p.k]==o?' on':'');b.style.setProperty('--w',pc+'%');
+   b.textContent=o+' — '+pc+'% ('+n+')';b.onclick=()=>vote(p.k,o);c.appendChild(b);
+  });
+  const f=document.createElement('p');f.className='note';f.textContent='إجمالي الأصوات: '+tot;c.appendChild(f);box.appendChild(c);
+ });
+ $('pmode').textContent=pdb?'النتائج مشتركة بين جميع المصوِّتين.':'وضع محلي: تُحفظ الأصوات في هذا المتصفح، وتظهر النتائج لك وحدك.';
+}
+async function vote(k,o){
+ mine[k]=o;LS.s('fw_mine',mine);
+ if(pdb&&puid){try{await pdb.collection('votes').doc(puid).set(mine)}catch(e){}}else tallyLocal();
+ renderPolls();
+}
+tallyLocal();renderPolls();
+(async()=>{
+ try{
+  if(typeof claude==='undefined')return;
+  const u=await claude.use('user'),d=await claude.use('db');
+  if(!u||!d)return;
+  const id=await u.id();if(!id)return;
+  pdb=d;puid=id;
+  d.collection('votes').onSnapshot(s=>{
+   VT={};
+   s.docs.forEach(x=>{const v=x.data()||{};if(x.id==puid)mine={...mine,...v};P.forEach(p=>{if(v[p.k]&&p.o.includes(v[p.k])){const key=p.k+'|'+v[p.k];VT[key]=(VT[key]||0)+1}})});
+   renderPolls();
+  },()=>{pdb=null;tallyLocal();renderPolls()});
+ }catch(e){}
+})();
+/* إضافات */
+function boom(){for(let i=0;i<36;i++){const s=document.createElement('span');s.className='conf';s.textContent=['⚽','🏆','⭐','🎉'][i%4];s.style.left=Math.random()*100+'vw';s.style.animationDelay=Math.random()*1.2+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),5000)}}
+const root=document.documentElement;
+const isDark=()=>root.dataset.theme?root.dataset.theme=='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+const sync=()=>{$('th').textContent=isDark()?'☀️':'🌙'};
+{const t=LS.g('fw_theme');if(t)root.dataset.theme=t}
+$('th').onclick=()=>{const n=isDark()?'light':'dark';root.dataset.theme=n;LS.s('fw_theme',n);sync()};
+sync();
+const facts=T.filter(t=>t.k!='ca').map(t=>{const c=count(t.l),top=c.filter(x=>x[1]==c[0][1]).map(x=>x[0]).join(' و ');return '💡 هل تعلم؟ '+top+' الأكثر تتويجًا بـ'+t.n+' ('+c[0][1]+(c[0][1]==2?' لقبان':' ألقاب')+').'}).concat(['💡 هل تعلم؟ فاز ريال مدريد بأول خمس نسخ من كأس أوروبا للأندية (1956–1960).','💡 هل تعلم؟ لامين يامال أول لاعب يفوز بجائزة كوبا ثلاث مرات متتالية.']);
+let fi=0;const ft=()=>{$('fact').textContent=facts[fi++%facts.length]};ft();setInterval(ft,5000);
+function cabinet(q){
+ const n=norm(q.trim());if(!n)return null;
+ const d=document.createElement('div');d.className='panel';
+ const h=document.createElement('h3');h.textContent='🏆 '+q.trim();d.appendChild(h);
+ let tot=0;
+ T.forEach(t=>{const m=t.l.filter(x=>norm(x[1]).includes(n));if(!m.length)return;tot+=m.length;const p=document.createElement('p');p.textContent=t.e+' '+t.n+': '+m.length+' — '+m.map(x=>x[0]).join('، ');d.appendChild(p)});
+ const f=document.createElement('p');f.className='note';f.textContent=tot?'المجموع: '+tot+' لقبًا في البطولات المعروضة.':'لا توجد نتائج. جرّب اسمًا آخر.';d.appendChild(f);return d}
+$('cgo').onclick=()=>{const r=$('cres');r.textContent='';['c1','c2','c3','c4'].forEach(i=>{const d=cabinet($(i).style.display=='none'?'':$(i).value);if(d)r.appendChild(d)})};
+$('c1').onkeydown=$('c2').onkeydown=e=>{if(e.key=='Enter')$('cgo').click()};
+let qs=[],qi=0,qsc=0,QN=5;
+function qStart(){
+ QN=+($('qn')&&$('qn').value)||5;qs=[];qi=0;qsc=0;
+ const pool=T.flatMap(t=>t.l.filter(x=>!x[2]).map(x=>[t,x]));
+ while(qs.length<QN){
+  const [t,x]=pool[Math.floor(Math.random()*pool.length)];
+  if(qs.some(q=>q.t==t&&q.x==x))continue;
+  const names=[...new Set(t.l.map(y=>y[1]))].filter(n=>n!=x[1]).sort(()=>Math.random()-.5).slice(0,3);
+  if(names.length<3)continue;
+  qs.push({t,x,o:[x[1],...names].sort(()=>Math.random()-.5)});
+ }
+ qShow();
+}
+function qShow(){
+ const b=$('qz');b.textContent='';
+ if(qi>=QN){
+  const best=Math.max(LS.g('fw_best'+QN)||0,qsc);LS.s('fw_best'+QN,best);
+  const h=document.createElement('h3');h.textContent='🎯 نتيجتك: '+qsc+' من '+QN;
+  const p=document.createElement('p');p.className='note';p.textContent='أفضل نتيجة لك: '+best+' من '+QN+(qsc==QN?' — علامة كاملة! 🎉':'');
+  const r=document.createElement('button');r.className='nb';r.textContent='اختبار جديد';r.onclick=qStart;
+  b.append(h,p,r);if(qsc==QN)boom();return}
+ const q=qs[qi],h=document.createElement('h3');
+ h.textContent='السؤال '+(qi+1)+' من '+QN+': من فاز بـ'+q.t.n+' عام '+q.x[0]+'؟';b.appendChild(h);
+ q.o.forEach(o=>{const bt=document.createElement('button');bt.className='opt';bt.textContent=o;
+  bt.onclick=()=>{
+   const ok=o==q.x[1];if(ok)qsc++;
+   [...b.querySelectorAll('.opt')].forEach(z=>{z.disabled=true;if(z.textContent==q.x[1])z.style.borderColor='#00c2a8'});
+   if(!ok)bt.style.borderColor='#ff3d71';
+   setTimeout(()=>{qi++;qShow()},1100)};
+  b.appendChild(bt)});
+}
+qStart();
+/* المستويات والمزايا الحصرية */
+const PAL=[['الافتراضي',0,null],['زمردي',1,['#00a86b','#7be495','#00c2a8','#0b6e4f']],['ذهبي',1,['#d4a017','#ffd700','#ff9f1c','#b8860b']],['ملكي',2,['#7c4dff','#b388ff','#00e5ff','#3d5afe']],['نيون',2,['#ff00aa','#00ffd5','#fff200','#00aaff']]];
+function lvl(){const u=cur&&users[cur];return !u?0:u.sub?2:u.pts>=50?1:0}
+function applyPal(n){
+ const p=PAL.find(x=>x[0]==n),s=root.style,k=['--a','--b','--c','--d'];
+ if(!p||!p[2]||p[1]>lvl()){k.forEach(v=>s.removeProperty(v));s.removeProperty('--hero');return}
+ k.forEach((v,i)=>s.setProperty(v,p[2][i]));s.setProperty('--hero','linear-gradient(135deg,'+p[2].join(',')+')');
+}
+function exportCSV(){
+ const rows=['البطولة,السنة,البطل'];
+ T.forEach(t=>t.l.forEach(x=>rows.push([t.n,x[0],x[1]].map(v=>'"'+v+'"').join(','))));
+ const data='\ufeff'+rows.join('\n');
+ (async()=>{
+  try{if(typeof claude!=='undefined'){const d=await claude.use('downloads');if(d){await d.save({filename:'football-champions.csv',data});return}}}catch(e){return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type:'text/csv;charset=utf-8'}));a.download='football-champions.csv';document.body.appendChild(a);a.click();a.remove();
+ })();
+}
+function perks(){
+ const L=lvl(),u=cur&&users[cur],box=$('vip'),sel=$('qn');box.textContent='';
+ const opts=L==2?[5,10,20]:L==1?[5,10]:[5];
+ if(sel.options.length!=opts.length){const old=sel.value;sel.textContent='';opts.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;sel.appendChild(o)});if(opts.includes(+old))sel.value=old}
+ sel.onchange=qStart;
+ $('qopts').style.display=L?'flex':'none';
+ ['c3','c4'].forEach(i=>{$(i).style.display=L?'':'none'});
+ applyPal(LS.g('fw_pal')||'');
+ const h=document.createElement('h3'),p=document.createElement('p');
+ if(!L){
+  h.textContent='🔒 المزايا الحصرية مقفلة';
+  p.textContent=u?'نقاطك الآن '+u.pts+' من 50. انشر تعليقات في الدردشة لفتح المزايا، أو فعّل التجربة المجانية للاشتراك.':'سجّل الدخول وانشر تعليقات في الدردشة لتصل إلى 50 نقطة وتفتح المزايا، أو فعّل التجربة المجانية للاشتراك.';
+  box.append(h,p);
+  if(u){const g=document.createElement('div'),i=document.createElement('i');g.className='prog';i.style.width=Math.min(100,u.pts*2)+'%';g.appendChild(i);box.appendChild(g)}
+  return}
+ h.textContent=L==2?'💎 مزايا المشترك الماسي مفتوحة':'🌟 مزايا العضو الذهبي مفتوحة';
+ p.className='note';p.textContent='اختر لون الموقع:';box.append(h,p);
+ PAL.filter(x=>x[1]<=L).forEach(x=>{const b=document.createElement('button');b.className='pal'+((LS.g('fw_pal')||'الافتراضي')==x[0]?' on':'');b.textContent=x[0];b.onclick=()=>{LS.s('fw_pal',x[0]);perks()};box.appendChild(b)});
+ if(L==2){const e=document.createElement('button');e.className='nb';e.style.margin='10px 4px 0';e.textContent='⬇ تصدير كل البطولات (CSV)';e.onclick=exportCSV;box.appendChild(e)}
+ else{const n=document.createElement('p');n.className='note';n.textContent='💎 للمزيد: فعّل التجربة المجانية لتحصل على الألوان الملكية والنيون، واختبار الخبراء من 20 سؤالًا، وتصدير CSV.';box.appendChild(n)}
+}
+const _ui=ui;ui=function(){_ui();perks()};
+perks();
+</script>
+</body>
+</html>
